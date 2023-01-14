@@ -1,19 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './index.scss';
+import {Provider} from "react-redux";
+import {store} from "./app/store";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import ArticlePage from "./pages/ArticlePage";
+import Home from "./pages/Home";
+import "@fontsource/montserrat/200.css";
+import "@fontsource/montserrat/300.css";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/700.css";
+import "@fontsource/montserrat/800.css";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const theme = createTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 900,
+            lg: 1290,
+            xl: 1536,
+        }
+    },
+    typography: {
+        allVariants: {
+            fontFamily: 'Montserrat',
+        },
+    },
+});
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+root.render(
+    <ThemeProvider theme={theme}>
+        <Router>
+            <Provider store={store}>
+                <React.StrictMode>
+                    <Routes>
+                        <Route element={<Home/>} path="/" />
+                        <Route element={<ArticlePage/>} path="/article/:id" />
+                    </Routes>
+                </React.StrictMode>
+            </Provider>
+        </Router>
+    </ThemeProvider>
+);

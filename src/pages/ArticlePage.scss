@@ -1,0 +1,36 @@
+$white: #fff;
+$gray: #363636;
+
+.article-page {
+  overflow-y: hidden;
+  &__image {
+    object-fit: cover;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 240px;
+    width: 100%;
+  }
+
+  &__info {
+    background-color: $white;
+    border-radius: 5px;
+    height: 1001px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 75px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  }
+
+  &__link {
+    color: $gray;
+    font-weight: 800;
+    text-transform: none;
+    margin-top: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+}

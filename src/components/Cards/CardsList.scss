@@ -1,0 +1,13 @@
+$gray: #363636;
+
+.card-grid-container {
+  display: grid;
+  justify-content: space-between;
+  margin-top: 45px;
+}
+
+.card-link-wrapper {
+  text-decoration: none;
+  color: $gray;
+  display: flex;
+}
